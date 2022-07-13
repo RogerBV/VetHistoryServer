@@ -1,6 +1,6 @@
-const { connect } = require("./database");
+const { connect } = require("./src/database");
 const express = require("express");
-
+const product = require("./src/product")
 var bodyParser = require("body-parser");
 var cors = require("cors");
 var app = express();
@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.json())
 app.use(cors());
+app.use("/api/product", product);
 app.use('/api',router);
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 1;
