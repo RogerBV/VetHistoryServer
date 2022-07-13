@@ -22,6 +22,10 @@ router.use((request,response,next)=>{
     next();
 });
 
+app.get("/", (req,res)=>{
+    res.send("EXPRESS")
+})
+
 router.route("/getPets").get(async (request,response)=> {
     const db = await connect();
     const result = await db.collection("pet").find({}).toArray();
@@ -36,3 +40,6 @@ router.route("/getOwners").get(async (request,response)=> {
  
 app.listen(3000)
 console.log("Server on port 3000")
+
+
+module.exports = app;
