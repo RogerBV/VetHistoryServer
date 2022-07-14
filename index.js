@@ -28,8 +28,19 @@ app.get("/", (req,res)=>{
 })
 
 router.route("/getPets").get(async (request,response)=> {
+    console.log("getPets")
     const db = await connect();
-    const result = await db.collection("pet").find({}).toArray();
+    const result = await db.collection("pet").aggregate([
+        {
+            $lookup: 
+            {
+                from: "owner",
+                localField: "nrodocument",
+                foreignField: "nrodocument",
+                as: "owner"
+            }
+        }
+    ]).toArray().then(data => data)
     response.json(result)
 })
 
