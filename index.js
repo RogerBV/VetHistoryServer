@@ -49,7 +49,8 @@ router.route("/getOwners").get(async (request,response)=> {
     const result = await db.collection("owner").find({}).toArray();
     response.json(result)
 })
- 
+
+app.use(express.static(__dirname +'/public'))
 app.listen(3000)
 console.log("Server on port 3000")
 
