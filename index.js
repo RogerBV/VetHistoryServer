@@ -44,6 +44,14 @@ router.route("/getPets").get(async (request,response)=> {
     response.json(result)
 })
 
+router.route("/getAntifleasByPet").get(async (request,response)=> {
+    console.log(request.query.id)
+    console.log("getAntifleasByPet")
+    const db = await connect();
+    const result = await db.collection("antiflea").find({}).toArray();
+    response.json(result)
+})
+
 router.route("/getOwners").get(async (request,response)=> {
     const db = await connect();
     const result = await db.collection("owner").find({}).toArray();
