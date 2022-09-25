@@ -1,0 +1,19 @@
+[{
+        "movementId": "1",
+        "movementTypeName": "Ingreso",
+        "concept": "Transferencia 222",
+        "amount": 9000,
+        "dateMovement": "2022-01-09",
+        "movementTypeSymbol": "+",
+        "accountId": 1
+    },
+    {
+        "movementId": 2,
+        "movementTypeName": "Egreso",
+        "concept": "PIN",
+        "amount": 800,
+        "dateMovement": "2022-07-09",
+        "movementTypeSymbol": "-",
+        "accountId": 1
+    }]
+
